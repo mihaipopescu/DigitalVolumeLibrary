@@ -1,0 +1,27 @@
+
+TODO
+====
+
+1. Slice planes
+
+	a) Design
+		i) In SlicePlane Mode, the volume is not rendered. 
+		Instead, the user can control a slice plane which is rendered with the information from the volume data.
+		
+		ii) Controlling the slice plane is performed with:
+			Translation: WASD
+			Rotation: Left Mouse Button
+			
+		iii) Button / Hotkey for "Save slice shot" -> bmp file: "slice01.bmp"...
+
+	b) Viewport Manager (like in Autodesk 3DStudio Max)
+
+
+2. Image fusion
+
+	a) Fusion of multi-modality Volumetric Medical Imagery
+	
+	b) Focus + Context Visualisation for Fusion of Volumetric Medical Images
+	
+	
+3. Voxelization

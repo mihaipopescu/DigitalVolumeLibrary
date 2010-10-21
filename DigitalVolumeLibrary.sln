@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Main", "Source\Main\Main.vcproj", "{182760F3-A239-427E-8417-4159BEE5F779}"
+	ProjectSection(ProjectDependencies) = postProject
+		{87C4054D-E892-487F-A05C-52B59F05CFEB} = {87C4054D-E892-487F-A05C-52B59F05CFEB}
+		{1061B6D0-31CF-443A-AB49-169EB34D592B} = {1061B6D0-31CF-443A-AB49-169EB34D592B}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Volume", "Source\Volume\Volume.vcproj", "{87C4054D-E892-487F-A05C-52B59F05CFEB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1C8A164C-E2EC-4D0F-95CB-4E022A94CDB5} = {1C8A164C-E2EC-4D0F-95CB-4E022A94CDB5}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Render", "Source\Render\Render.vcproj", "{1061B6D0-31CF-443A-AB49-169EB34D592B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{60DC09BE-F25D-4F06-90CC-95B3D5E946DE} = {60DC09BE-F25D-4F06-90CC-95B3D5E946DE}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FractalCodingApp", "Source\FractalCodingApp\FractalCodingApp.vcproj", "{A83B999E-EBF8-4D7C-B572-D7C96CA97207}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Math", "Source\Math\Math.vcproj", "{1C8A164C-E2EC-4D0F-95CB-4E022A94CDB5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DXUT", "Source\External\DXUT\DXUT.vcproj", "{60DC09BE-F25D-4F06-90CC-95B3D5E946DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{182760F3-A239-427E-8417-4159BEE5F779}.Debug|Win32.ActiveCfg = Debug|Win32
+		{182760F3-A239-427E-8417-4159BEE5F779}.Debug|Win32.Build.0 = Debug|Win32
+		{182760F3-A239-427E-8417-4159BEE5F779}.Release|Win32.ActiveCfg = Release|Win32
+		{182760F3-A239-427E-8417-4159BEE5F779}.Release|Win32.Build.0 = Release|Win32
+		{87C4054D-E892-487F-A05C-52B59F05CFEB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{87C4054D-E892-487F-A05C-52B59F05CFEB}.Debug|Win32.Build.0 = Debug|Win32
+		{87C4054D-E892-487F-A05C-52B59F05CFEB}.Release|Win32.ActiveCfg = Release|Win32
+		{87C4054D-E892-487F-A05C-52B59F05CFEB}.Release|Win32.Build.0 = Release|Win32
+		{1061B6D0-31CF-443A-AB49-169EB34D592B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1061B6D0-31CF-443A-AB49-169EB34D592B}.Debug|Win32.Build.0 = Debug|Win32
+		{1061B6D0-31CF-443A-AB49-169EB34D592B}.Release|Win32.ActiveCfg = Release|Win32
+		{1061B6D0-31CF-443A-AB49-169EB34D592B}.Release|Win32.Build.0 = Release|Win32
+		{A83B999E-EBF8-4D7C-B572-D7C96CA97207}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A83B999E-EBF8-4D7C-B572-D7C96CA97207}.Debug|Win32.Build.0 = Debug|Win32
+		{A83B999E-EBF8-4D7C-B572-D7C96CA97207}.Release|Win32.ActiveCfg = Release|Win32
+		{A83B999E-EBF8-4D7C-B572-D7C96CA97207}.Release|Win32.Build.0 = Release|Win32
+		{1C8A164C-E2EC-4D0F-95CB-4E022A94CDB5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1C8A164C-E2EC-4D0F-95CB-4E022A94CDB5}.Debug|Win32.Build.0 = Debug|Win32
+		{1C8A164C-E2EC-4D0F-95CB-4E022A94CDB5}.Release|Win32.ActiveCfg = Release|Win32
+		{1C8A164C-E2EC-4D0F-95CB-4E022A94CDB5}.Release|Win32.Build.0 = Release|Win32
+		{60DC09BE-F25D-4F06-90CC-95B3D5E946DE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{60DC09BE-F25D-4F06-90CC-95B3D5E946DE}.Debug|Win32.Build.0 = Debug|Win32
+		{60DC09BE-F25D-4F06-90CC-95B3D5E946DE}.Release|Win32.ActiveCfg = Release|Win32
+		{60DC09BE-F25D-4F06-90CC-95B3D5E946DE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
