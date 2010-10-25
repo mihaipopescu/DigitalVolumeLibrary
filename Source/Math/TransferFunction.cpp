@@ -1,10 +1,10 @@
 #include "StdAfx.h"
 #include "TransferFunction.h"
 
-namespace vdb {
+namespace vdl {
 namespace math {
 
-using namespace vdb::types;
+using namespace vdl::types;
 
 cCubic::cCubic(sVector4D<float> *a, sVector4D<float> *b, sVector4D<float> *c, sVector4D<float> *d)
 {
@@ -31,7 +31,7 @@ void cCubic::ComputeCubicSpline(int n, const sTransferControlPoint *v, cCubic *o
        [       1 2] [D[n]]   [3(v[n] - v[n-1])]
 
 	    by decomposing the matrix into upper triangular and lower matrices
-       and then back sustitution.  See Spath "Spline Algorithms for Curves
+       and then back substitution.  See Spath "Spline Algorithms for Curves
        and Surfaces" pp 19--21. The D[i] are the derivatives at the knots.
 	*/
 

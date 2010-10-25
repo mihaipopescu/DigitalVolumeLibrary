@@ -11,8 +11,8 @@
 #define _I(x, y, z) ((z)*m_iWidth*m_iHeight + (y)*m_iWidth + (x))
 #define clamp(val, vmin, vmax) min((vmax), max((vmin), (val)))
 
-using namespace vdb::types;
-using namespace vdb::math;
+using namespace vdl::types;
+using namespace vdl::math;
 
 class CVolumeData
 {

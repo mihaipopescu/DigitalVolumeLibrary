@@ -18,5 +18,5 @@ public:
 	virtual ~CJuliaQuaternionVolume(void);
 	CJuliaQuaternionVolume(UINT iWidth, UINT iHeight, UINT iDepth) : CVolumeData( iWidth, iHeight, iDepth ) { }
 
-	void Create(const vdb::math::sVector4D<float> c, float f4DPlane, EQUATPLANE eqp, int iIterations);
+	void Create(const vdl::math::sVector4D<float> c, float f4DPlane, EQUATPLANE eqp, int iIterations);
 };

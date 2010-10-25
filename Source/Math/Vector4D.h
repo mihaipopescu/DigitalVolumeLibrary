@@ -1,7 +1,7 @@
 #ifndef _VECTOR4D_H_
 #define _VECTOR4D_H_
 
-namespace vdb 
+namespace vdl 
 {
 	namespace math 
 	{

@@ -173,11 +173,11 @@ HRESULT CVolume::OnResetDevice( LPDIRECT3DDEVICE9 pD3DDevice )
 
 	if( m_pColorKnots && m_pAlphaKnots )
 	{
-		vdb::math::CreateTransferFunction_CubicSpline(m_nColors, m_pColorKnots, m_nAlpha, m_pAlphaKnots, m_pTransferArray);
+		vdl::math::CreateTransferFunction_CubicSpline(m_nColors, m_pColorKnots, m_nAlpha, m_pAlphaKnots, m_pTransferArray);
 	}
 	else if( m_pColorKnots )
 	{
-		vdb::math::CreateTransferFunction_Palette(m_pColorKnots, m_pTransferArray);
+		vdl::math::CreateTransferFunction_Palette(m_pColorKnots, m_pTransferArray);
 	}
 
 	V_RETURN( D3DXCreateTexture(pD3DDevice, 256, 1, 1, D3DUSAGE_DYNAMIC, D3DFMT_A8R8G8B8, D3DPOOL_DEFAULT, &m_pTransferFunction) );

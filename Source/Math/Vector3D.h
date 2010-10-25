@@ -1,6 +1,6 @@
 #pragma once
 
-namespace vdb 
+namespace vdl 
 {
 	namespace math 
 	{

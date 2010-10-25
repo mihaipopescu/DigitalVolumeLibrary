@@ -9,7 +9,7 @@ CJuliaQuaternionVolume::~CJuliaQuaternionVolume(void)
 {
 }
 
-void CJuliaQuaternionVolume::Create(const vdb::math::sVector4D<float> c, float f4DPlane, EQUATPLANE eqp, int iIterations)
+void CJuliaQuaternionVolume::Create(const vdl::math::sVector4D<float> c, float f4DPlane, EQUATPLANE eqp, int iIterations)
 {
 	ClearVoxelData();
 
@@ -20,7 +20,7 @@ void CJuliaQuaternionVolume::Create(const vdb::math::sVector4D<float> c, float f
 		{
 			for(UINT x = 0; x < m_iWidth; x++)
 			{
-				vdb::math::sVector4D<float> q;
+				vdl::math::sVector4D<float> q;
 				switch(eqp)
 				{
 				case EQP_ABC:

@@ -8,11 +8,6 @@ CFractalEncoder::CFractalEncoder(const CVolumeData* pVolumeData) : myVolumeData(
 	myRootDomain = new sDomainVoxelNode(NULL, sDomainVoxelNode::ECP_ROOT, myVolumeData->m_iWidth, myVolumeData->m_iHeight, myVolumeData->m_iDepth);
 }
 
-void CFractalEncoder::Encode()
-{
-	Partition_Octree( myRootDomain );
-}
-
 void CFractalEncoder::Partition_Octree(struct sDomainVoxelNode* node)
 {
 	for(int pos = 0; pos<sDomainVoxelNode::ECP_ENUMNO; ++pos)
@@ -23,3 +18,9 @@ void CFractalEncoder::Partition_Octree(struct sDomainVoxelNode* node)
 
 	node->ClassifyDomain( &CSymmetricGroup8::GetStaticInstance() );
 }
+
+void CFractalEncoder::Encode()
+{
+	Partition_Octree( myRootDomain );
+}
+

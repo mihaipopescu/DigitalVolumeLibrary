@@ -11,7 +11,7 @@
 #include "types.h"
 #include "Vector4D.h"
 
-namespace vdb
+namespace vdl
 {
 	namespace math
 	{
@@ -41,8 +41,8 @@ namespace vdb
 
 		};
 
-		void CreateTransferFunction_CubicSpline(int cn, sTransferControlPoint* vColorKnots, int an, sTransferControlPoint* vAlphaKnots, vdb::types::COLOR_ARGB *pTransferArray);
-		void CreateTransferFunction_Palette(sTransferControlPoint* vPaletteKnots, vdb::types::COLOR_ARGB *pTransferArray);
+		void CreateTransferFunction_CubicSpline(int cn, sTransferControlPoint* vColorKnots, int an, sTransferControlPoint* vAlphaKnots, vdl::types::COLOR_ARGB *pTransferArray);
+		void CreateTransferFunction_Palette(sTransferControlPoint* vPaletteKnots, vdl::types::COLOR_ARGB *pTransferArray);
 	}
 }
 
