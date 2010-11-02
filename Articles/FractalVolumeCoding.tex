@@ -1,0 +1,746 @@
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%
+%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
+%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
+%%*************************************************************************
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. IEEE's font choices can trigger bugs that do  ***
+% *** not appear when using other class files.                            ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+% Note that the a4paper option is mainly intended so that authors in
+% countries using A4 can easily print to A4 and see how their papers will
+% look in print - the typesetting of the document will not typically be
+% affected with changes in paper size (but the bottom and side margins will).
+% Use the testflow package mentioned above to verify correct handling of
+% both paper sizes by the user's LaTeX system.
+%
+% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
+% should be used if it is desired that the figures are to be displayed in
+% draft mode.
+%
+\documentclass[10pt, conference, compsocconf]{IEEEtran}
+% Add the compsocconf option for Computer Society conferences.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
+% not currently provide for hyperlinked citations.
+% The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
+% The documentation is contained in the cite.sty file itself.
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+\usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+\DeclareGraphicsExtensions{.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at: 
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
+% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+\usepackage[cmex10]{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics. If using
+% it, be sure to load this package with the cmex10 option to ensure that
+% only type 1 fonts will utilized at all point sizes. Without this option,
+% it is possible that some math symbols, particularly those within
+% footnotes, will be rendered in bitmap form which will result in a
+% document that can not be IEEE Xplore compliant!
+%
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
+% There is also a support site at:
+% http://algorithms.berlios.de/index.html
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+\usepackage{algorithm}
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+
+
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
+% especially mdwmath.sty and mdwtab.sty which are used to format equations
+% and tables, respectively. The MDWtools set is already installed on most
+% LaTeX systems. The lastest version and documentation is available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+%\usepackage{eqparbox}
+% Also of notable interest is Scott Pakin's eqparbox package for creating
+% (automatically sized) equal width boxes - aka "natural width parboxes".
+% Available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
+
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\usepackage[tight,footnotesize]{subfigure}
+% subfigure.sty was written by Steven Douglas Cochran. This package makes it
+% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
+% work, it is a good idea to load it with the tight package option to reduce
+% the amount of white space around the subfigures. subfigure.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
+% subfigure.sty has been superceeded by subfig.sty.
+
+
+
+%\usepackage[caption=false]{caption}
+%\usepackage[font=footnotesize]{subfig}
+% subfig.sty, also written by Steven Douglas Cochran, is the modern
+% replacement for subfigure.sty. However, subfig.sty requires and
+% automatically loads Axel Sommerfeldt's caption.sty which will override
+% IEEEtran.cls handling of captions and this will result in nonIEEE style
+% figure/table captions. To prevent this problem, be sure and preload
+% caption.sty with its "caption=false" package option. This is will preserve
+% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later 
+% (recommended due to many improvements over 1.2) of subfig.sty supports
+% the caption=false option directly:
+%\usepackage[caption=false,font=footnotesize]{subfig}
+%
+% The latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+% The latest version and documentation of caption.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure. The latest version and documentation can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/base/
+
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
+% Documentation is contained in the stfloats.sty comments as well as in the
+% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
+% does not allow \baselineskip to stretch. Authors submitting work to the
+% IEEE should note that IEEE rarely uses double column equations and
+% that authors should try to avoid such use. Do not be tempted to use the
+% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
+% not format its papers in such ways.
+
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
+% Read the url.sty source comments for usage information. Basically,
+% \url{my_url_here}.
+
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{con-fi-gu-ra-tion}
+
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Volume Content Indexing using a Fractal Coding Algorithm}
+
+
+% author names and affiliations
+% use a multiple column layout for up to two different
+% affiliations
+
+\author{\IEEEauthorblockN{Mihai Popescu, Mihai Sorin Tudorache, and Razvan Tudor Tanasie}
+\IEEEauthorblockA{Department of Software Engineering\\
+Faculty of Automatics, Computers and Electronics\\
+University of Craiova, Romania\\
+\IEEEauthorblockA{ Email: \{mpopescu, mtudorache, razvan.tanasie\}@software.ucv.ro}
+}}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+%TODO: too short and shallow
+Current technology has made possible to scan volumes with ease and thus huge amount of data it is generated. Devising algorithms to efficiently store and index this data is an open challenge.
+In this article we propose a theoretical approach to volume indexing by extending the idea of using fractal compression to index images, to the third dimension.
+%TODO: end the abstract with one sentence stressing out the main achievement (validated result) of the paper.
+\end{abstract}
+
+\begin{IEEEkeywords}
+volume, visualization, fractal, coding, indexing.
+%TODO: all keywords are italic style
+\end{IEEEkeywords}~\\
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+\section{Introduction}
+Medical imaging technologies, such as 3D ultrasound, CAT (Computed Axial Tomography) or MRI (Magnetic \ Resonance Imaging), had made possible to scan volumes with ease and can acquire huge amount of data containing detailed representations of the sampled volume. Initially used in medical imaging, volume visualization has become an essential technique for many engineering applications that require visualization of three-dimensional data sets. However, all volume visualization methods require that the whole volume dataset should be available at processing time and must be resident in memory. The magnitude of volumetric data that is currently handled range from hundreds of megabytes to gigabytes (e.g., 15 to 40 GB volumes from the Visible Human Project\textsuperscript{\textregistered}\cite{VHP}), and it can be a very demanding requirement for current PCs or even for dedicated workstations.~\\
+
+For example, a raw volume with a resolution of $512^{3}$ and 16 bits for density scalars require 256 megabytes to be loaded into memory. Moreover, if an illumination model is required then gradients must be computed for more than 100 million voxels. This means that at least 512MB of free memory must be available to display a rather small volume. Thus, finding efficient compression algorithms for these large data is an important issue.~\\
+
+In medical imaging, fast computerized diagnostics can be lifesaving in many difficult situations. In this field, doctors are already working with huge digital libraries consisting of hundreds of volumes of organs from patients with different diagnostics. The digital library should be indexed in order to be able to perform content-based volumetric data retrieval. Then, meaningful search results can be obtained if certain criteria are specified such as: color, shape, position, density or clustering.~\\
+
+Keyword-based approaches use a set of keywords to label volumetric data but the query result is often misleading or irrelevant and even if results are promising they will not suffice in most cases.~\\
+
+Content-based approaches mainly make use of computer vision and pattern recognition techniques in order to extract features out of the volume data. An interesting research direction in content-based indexing is based on data compression. 
+These techniques were originally created only for one-dimensional signals and for two-dimensional images. Thus, in order to apply them on volumetric data, these algorithms must be extended.~\\
+
+This article presents the mathematical model used for extending the fractal coding algorithm to the third dimension that will be used for volume content indexing. The encoding algorithm is described along with the associated complexity calculus. This complexity is greatly reduced but it still remains exponential as in all fractal coding algorithms. This paper basically prepares the ground for future research in this direction and sets up the basis for the architecture that is yet to be implemented.~\\
+
+\section{State of the art} 
+Wavelet-based approaches to volumetric data coding introduced by Muraki \cite{Mur93} can achieve good rate-distortion performance. The technique of using a 3D wavelet transformation was improved by the SPIHT algorithm \cite{Sai96} \emph{(Set Partitioning In Hierarchical Trees)} that was based on the EZW algorithm \cite{Luo96} \emph{(Embeded Zerotree Wavelet)} and provided good results even for medial volumetric data \cite{Xio99}.~\\
+
+But, independent work of Cochran, Hart and Flynn \cite{Coc96} shows that fractal volume compression rivals DCT \emph{(Direct Cosine Transform)} methods despite their huge computational time. To counter this side effect, parallel implementations that exploit SIMD architecture on current commodity graphics hardware can achieve real-time performances \cite{Err05}.~\\
+
+On the other hand, it has been shown that if fractal coding is used \cite{Slo94} the indexing algorithm can take advantage of the hierarchical nature of the coding and thus, not only it greatly reduces volume storage but is effective for content-based indexing. Volumes in their compressed form makes them suitable for use with large digital libraries.~\\
+	
+It's a fact that fractal image compression can be very efficient in image indexing \cite{Che95}. Therefore, extending the fractal coding algorithm into the third dimension and use this for volume content indexing, is the next logic step towards a new volumetric indexing technique that is introduces in this paper.~\\
+
+\section{3D Extension of Fractal Coding Model}
+Fractal Coding is a lossy compression technique, initially developed by Barnsley \cite{Bar88,Bar92} that uses the self-similarity property of fractals, i.e., the parts resemble the whole. The main idea behind the Fractal Image Compression algorithm \cite{Fis95,Fis91} is to find transformations that iterated can generate the whole image again.~\\
+
+\subsection{Iterated Function Systems}
+
+The mathematical model of a two dimensional image with one channel is basically a graph function $z=f(x,y)$ where the height z is the level of gray of the pixel at position (x,y). The natural extension of this function for volumes is a three-dimensional density function $w=f(x,y,z)$. This function is a set in $\mathbf{R}^4$, i.e., a four dimensional object defined by spatial voxel distribution and voxel density.~\\
+
+A 3D Iterated Function System consists of a collection of contractive transformations, which map the three-dimensional space to itself as follows:
+
+\begin{equation}\label{map}
+\Omega(\cdot) = \{\omega_i : \mathbf{R}^3 \to \textbf{R}^3 | i = \overline{1,n}\} = \displaystyle\bigcup_{i=1}^n\omega_i(\cdot).
+\end{equation}
+
+For the Iterated Function System, in this paper, we will use affine transformations as the type of $\omega$ transformation because they offer a natural representation of spatial transformation (rotations and translations) and control over point property (density or intensity).
+
+\begin{equation}\label{ifs}
+\omega_i\left(\cdot\right)=
+\left[\begin{array}{cccc} ax_i & ay_i & az_i & 0\\  bx_i & by_i & bz_i & 0\\ cx_i & cy_i & cz_i & 0\\ 0 & 0 & 0 & s_i\end{array}\right]\left(\cdot\right) + \left[\begin{array}{cccc} dx_i \\ dy_i \\ dz_i \\o_i \end{array}\right].
+\end{equation}
+
+\begin{flushleft}
+where the vectors \textbf{a, b, c} (rotation) and \textbf{d} (translation) define how the original domain is mapped while \emph{s} is the contrast and \emph{o} is the brightness of the transformation.
+\end{flushleft} 
+
+The transformation is applied to a volume f: $\omega_i(f) \equiv \omega_i(x,y,z,f(x,y,z))$ transforming the original \emph{domain} denoted with $D_i$ to another \emph{range} $R_i$: $\omega_i(D_i)=R_i$.~\\
+
+The collection of ranges must be a volume and thus the ranges must be disjoint sets and must add the whole volume:
+$\cup R_i = I^3, R_i \cap R_j = \emptyset, \forall i \neq j$.~\\
+
+\subsection{Attractor of the IFS}
+
+\emph{The attractor} of the IFS $\Omega$ is a special volume denoted $x_\Omega$ with the following properties: ~\\
+
+\begin{enumerate}
+\item{If we apply the transformation to the attractor there will be no difference between input and output as the volume remains the same. The attractor is called the \emph{fixed point} of $\Omega$. ~\\
+\begin{center}
+$\Omega(x_\Omega) = x_\Omega.$
+\end{center}
+} ~\\
+\item{Given an input volume $V_0$ we can iterate the transformations with the results from previous step: $\Omega(V_i)=\Omega(\Omega(V_{i-1}))=\Omega^i(V_0), i =1..n$, then the limit is the fixed point: ~\\
+\begin{center}
+$\displaystyle x_\Omega \equiv V_\infty = \lim_{n \to \infty}\Omega^n(V_0).$
+\end{center}
+and is not dependent on the input volume.
+}
+\item{The fixed point $x_\Omega$ is unique.}
+\end{enumerate} ~\\
+
+
+The attractor properties defined above are also know as the \emph{Contractive Mapping Fixed-Point Theorem} extended from the two dimensional version \cite{Fis95}.
+The final iterated volume should be the original data. So while encoding tries to find the map $\Omega$, decoding is performed very fast iterating the compressed volume until the differences between outputs is relatively small. Furthermore, this attractor volume is resolution independent, which can be a great advantage using this method.~\\
+
+\subsection{Metrics on Volumes}
+
+In order to find the attractor for a map $\Omega$ that takes an input volume and yields an output volume we must define the distance between two volumes or a metric in volumetric space.~\\
+
+While in \emph{supremum metric} great differences between the two functions are weighted:
+
+\begin{equation}\label{dsup}
+d_{sup}(f,g) = \sup_{(x,y,z)\in I^{3}}|f(x,y,z) - g(x,y,z)|.
+\end{equation}
+
+\begin{flushleft}
+in the \emph{root mean square deviation metric} the statistical measure of the magnitude of the difference between the two functions counts:
+\end{flushleft}
+
+\begin{equation}\label{drms}
+d_{rms}(f,g) = \sqrt{\int_{I^{3}}\left[ f(x,y,z) - g(x,y,z)\right]dxdydz}.
+\end{equation}
+
+In this paper, we will use the latter because it is more suited in most cases and produces better results despite the fact that it's hard to prove it's contractivity \cite{Hur93}.~\\
+
+\section{Fractal Encoding}
+As we stated before, we try to find $\Omega$, the collection of mappings $\omega_i$, that is the best approximation for the volume f such that $x_\Omega$ is the fixed point of the map and $x_\Omega \approx f$. ~\\
+
+Basically, the fractal encoding works by first partitioning the volume from domains $D_i$ into a collection of ranges $R_i$ and afterwards seeks for each range a domain with the lowest \emph{rms} error. The partitioning scheme of the volume determines the vectors \textbf{a}, \textbf{b}, \textbf{c}, \textbf{d}, from equation \ref{ifs} as well as \emph{s} and \emph{o}.~\\
+
+After we have found the transformation $\omega_i$ we will seek to minimize the differences between the parts of the volume and with transformed pieces using the following estimator:
+\begin{equation}
+d_{rms}(f\cap(R_i \times I), \omega_i(f)) < \epsilon.
+\end{equation}
+
+\begin{algorithm}
+\caption{Fractal Encoding Algorithm}
+\label{encoding}
+\begin{algorithmic}
+\REQUIRE volume $f$, tolerance $\epsilon$
+\ENSURE $\Omega$
+\STATE $n \leftarrow MaximumPartitionDepth( f )$
+\STATE $\Omega \leftarrow \{ \emptyset \}$
+\STATE $R \leftarrow \{I^3\}$
+\FOR {$R_i \in R$}
+\STATE Find $D_i$ in domain pool $D$ and $\omega_i$ with the lowest \emph{rms}
+\IF {$d_{rms}(f\cap(R_i \times I), \omega_i(f)) < \epsilon$ \OR $Depth(R_i) = n$}
+\STATE $\Omega \leftarrow \Omega \cup \{\omega_i\}$
+\ELSE
+\STATE $R \leftarrow R \cup Partition( R_i ) $
+\ENDIF
+\STATE $R \leftarrow R \setminus R_i$
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[scale=0.5]{octree}
+\caption{Octants in Octree Volume Partitioning}
+\label{fig:octree}
+\end{figure}
+
+\subsection{Complexity Calculus}
+We choose to partition the volume using an \emph{octree}. This partitioning scheme recursively subdivide each node into eight octants (see Fig. \ref{fig:octree}) and thus our volume must have power of two dimensions $(2^n)^3$ and the domains $D_i$ are twice the size of a range.
+
+To seek for the domain $D_i$ that best covers $R_i$ is a very computationally expensive task. For example, if we want the maximum compression ratio and good fidelity, then in the worst case, every voxel of the volume must be compared with those from the above level. Basic arithmetic show as the general number of comparisons for level m is $N(m) = 2^{3*(2m-1)}$ and the sum of comparisons from all levels is:
+\begin{equation}\label{eq:comparisons}
+\displaystyle \sum_{m=1}^n N(m) = \sum_{m=1}^n 2^{6m-3}=8\frac{2^{6n}-1}{2^6-1}.
+\end{equation}
+and in table \ref{table:comparisons} some values for this sum are shown.
+\begin{table}[!t]
+\centering
+\renewcommand{\tablename}{TABLE}
+\caption{Total number of comparisons}
+\begin{tabular}{c rc}
+\hline\hline
+n & $\Sigma$ \\ [0.5ex]
+\hline
+1 & 8 \\
+2 & 520 \\
+3 & 33,288 \\
+4 & 2,130,440\\
+5 & 136,348,168\\
+6 & 8,726,282,760\\
+7 & 558,482,096,648\\
+8 & 35,742,854,185,480\\
+9 & 2,287,542,667,870,728\\
+\hline
+\end{tabular}
+\label{table:comparisons}
+\end{table}
+
+We can observe that even for smaller volumes the total number of comparisons is huge, which is more than unpractical.
+
+So, in conclusion, worst time should be limited by an exponential time. To minimize this complexity we classify the domains and the comparison tests will be performed only on volumes within the same class.
+
+\subsection{Domain Pool Classification}
+The classification scheme is an extension in 3D of the one presented in \cite{Fis91}. Thus, we can compute the sum of the voxels values from an octant at depth d: 
+
+\begin{equation}
+\displaystyle A_i = \sum_{j=1}^{2^{3(d-1)}}v_j^i, i = 1..8.
+\end{equation}
+
+There are $N = 8! = 40320$ possible configurations of the atomic values of the octants like: $A_1 \leq A_2 \leq A_3 \leq A_4 \leq A_5 \leq A_6 \leq A_7 \leq A_8$ (see Fig. \ref{fig:classification}). These octants have symmetries on each of the three axes and we can rotate the configurations using permutation operations $\sigma_x, \sigma_y, \sigma_z$ on their symmetric group:
+
+\begin{equation}
+\left\{ \begin{array}{c}
+\sigma_x = (1~5~7~3)(2~6~8~4) \\ 
+\sigma_y = (1~2~6~5)(3~4~8~7) \\
+\sigma_z = (1~2~4~3)(5~6~8~7) \\
+\end{array}\right.
+\end{equation}
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[scale=0.7]{classification}
+\caption{Sample Configuration of Octants}
+\label{fig:classification}
+\end{figure}
+
+We can observe easily that these rotations have a cycle length of 4. Thus, if we rotate by X axis the initial configuration:
+$(1~2~3~4~5~6~7~8)~\xrightarrow{\sigma_x}~(5~6~1~2~7~8~3~4)~\xrightarrow{\sigma_x} \\ ~(7~8~5~6~3~4~1~2)~\xrightarrow{\sigma_x}~(3~4~7~8~1~2~5~6) \xrightarrow{\sigma_x}~(1~2~3~4~5~6~7~8)$, and after four rotations we get back at our initial configuration.
+
+So, these four configurations are equivalent and are classified into their respective class. Indifferent of the permutation chosen, after this classification we remain with $N'=8!/4=10080$. Even more, if we approximate the first two atomic values $A_1 \approx A_2$ then we end up with $N''=8!/4/2=5040$ classes.
+
+The total number of classifications is given by:
+\begin{equation}
+\sum_{m=1}^{n-1} 2^{3m} = 8\frac{2^{3n-3}-1}{2^3-1}.
+\end{equation}
+which is a soft exponential function compared with equation \ref{eq:comparisons}. Even if time complexity remains exponential, classification greatly reduces the total number of computations as depicted also in table \ref{table:classifications} in comparison with table \ref{table:comparisons}.
+
+\begin{table}[!t]
+\renewcommand{\tablename}{TABLE}
+\caption{Total number of classifications}
+\centering
+\begin{tabular}{c rc}
+\hline\hline
+n & $\Sigma$ \\ [0.5ex]
+\hline
+1 & 0\\
+2 & 8\\
+3 & 72\\
+4 & 584\\
+5 & 4,680\\
+6 & 37,448\\
+7 & 299,592\\
+8 & 2,396,744\\
+9 & 19,173,960\\
+\hline
+\end{tabular}
+\label{table:classifications}
+\end{table}
+
+~\\
+\section{Decoding}
+Unlike encoding, decoding is performed very fast \cite{Bah93} because the process is really straightforward since it involves iterating an initial volume through the contractive mapping $\Omega$ found in the encoding process. The initial volume can be any volume (typically initialized with zeros) because the fixed point is always the decompressed volume. The next volume is partitioned using an octree into ranges and the previous into domains (twice the size of ranges). At each step of the iteration, the domain pool is refined and the volume is decompressed on itself. It is assured that $\Omega$ converges to infinity but the process is stopped when the differences between two consecutive decompressed volumes is in an accepted error level.
+
+
+~\\
+\section{Conclusion and Future Research}
+Using the compression technique described in previous sections, each volume can be indexed in the volume database by it's fractal code. A query on the database to find the similar volumes in respect with a representative volume is performed by exploring the relationship between the fractal codes associated with each volume. Fractal codes not only can show how much self-similarity is within a volume but the similarity between different volumes can also be measured.~\\
+
+Future research is required to find a proper metric function between any two contractive mappings $\Omega_1$ and $\Omega_2.$ With this information in hand we can index our volumes using M-Trees and then the volume library can be queried for useful content-based retrievals like Range-Query or K-Nearest-Neighbors. These queries are performed using a  given iconic volume that can also be indexed and added to the library.
+
+\newpage
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+
+
+
+%TODO: Reorder biography as the paper must cite papers in ascending order !!! 
+\begin{thebibliography}{1}
+
+\bibitem{VHP}
+"The Visible Human Project", The National Library of Medicine, Bethesda, \url{http://www.nlm.nih.gov/research/visible/visible_human.html}, 2010.
+
+\bibitem{Mur93}
+S. ~Muraki, "Volume data and wavelet transform", IEEE Computer Graphics and Application 13,4; pag.50-56, 1993.
+
+\bibitem{Sai96}
+A. Said, W. A. Pearlman, "A new, fast and efficient image codec based on set partitioning in hierarchical trees", IEEE Trans. Circuit and Sys. For Video Techno., 6,3 (1996) 243-250.
+
+\bibitem{Luo96}
+J. X. Wang, C. W. Chen, K. J. Parker, "Volumetric medical image compression with three-dimensional wavelet transform and octave zerotree coding", Visual Communication and Image Processing Proc. SPIE 2727, pages 579-590, March 1996.
+
+\bibitem{Xio99}
+Z. Xiong, X. Wu, D. Y. Yun, W. Pearlman, "Progressive coding of medical volumetric data using threedimensional integer wavelet packet transform", Visual Communications and Image Processing, pp. 327-335, 1999.
+
+\bibitem{Coc96}
+W.O. Cochran, J.C. Hart, and P.J. Flynn, "Fractal volume compression", IEEE Transactions on Visualization and Computer Graphics, Page(s):313 - 322, 1996.
+
+\bibitem{Err05}
+U. Erra, "Toward Real Time Fractal Image Compression Using Graphics Hardware". Lecture Notes in Computer Science, Vol. 3804, pp. 723-728, Springer-Verlag, 2005.
+
+\bibitem{Slo94}
+Alan D. ~Solan, "Retrieving Database Contents by Image Recognition: New Fractal Power.", Advanced imaging, 9(5):26-30.5, 1994.
+
+\bibitem{Che95}
+B. ~Cheng, A. ~Zhang, R. ~Acharya, and C. ~Sibata, "Using Fractal Coding to Index Image Content for a Digital Library", Technical Report 95-05, SUNY, Buffalo, NY, 1995.
+
+\bibitem{Bar88}
+M.F. Barnsley, "Fractals Everywhere", Academic Press, San Diego, 1988.
+
+\bibitem{Bar92}
+M.F. Barnsley, and L.P. Hurd, "Fractal Image Compression", AK Peters, Ltd., Wellesley, Ma., 1992.
+
+\bibitem{Fis95}
+Yuval Fisher, "Fractal Image Compression: Theory and Application", Springer-Verlag, New York, 1995.
+
+\bibitem{Fis91}
+Yuval Fisher, E.W. Jacobs, and R.D. Boss, "Fractal image compression using iterated transforms", Technical Report 1408, Naval Ocean Systems Center, San Diego, CA, 1991.
+
+\bibitem{Hur93}
+Bernd H\"{u}rtgen, "Contractivity of Fractal Transforms for Image Coding", Electronics Letters, 29-1749--1750, 1993.
+
+\bibitem{Bah93}
+Z. Baharav, D. Malah, and E. Karnin, "Hierarchical interpretation of fractal image coding and its application to fast decoding", Intl. Conf. on Digital Signal Processing, Cyprus, 1993.
+
+\end{thebibliography}
+
+
+% that's all folks
+\end{document}
+
+
+%--------- Comment 3:
+%Fractal compression is used to index images. The paper extends this idea
+%as an approach to volume indexing, where each volume is indexed by its
+%fractal code. This is especially useful as current technology is able to
+%generate huge amount of data but is not yet able to process it at a
+%satisfactory speed. The idea of extending fractal compression to
+%three-dimensional data sets is a logical step towards volume indexing
+%albeit not an innovative one.
+%
+%
+%
+%--------- Comment 4:
+%This paper proposes a theoretical contribution to the extension of fractal
+%coding to 3D. It starts with a motivation and a description of the model.
+%The main contribution is an heuristic to reduce the complexity of coding,
+%but this complexity remains exponential.
+%There is no experiment to evaluate the practical interest of this approach.
+%
+%
+%
+%--------- Comment 5:
+%This paper presents an approach for volume content description and thus
+%indexing, based on fractal compression.
+%
+%
+%The paper is well written, it describes well the model, the associated
+%metrics and the complexity calculus. But there are two main drawbacks that
+%motivate a "reject":
+%
+%
+%- State of the art on volume indexing is very poor. 3D indexing is a quite
+%recent topical problem, but literature and articles exist on this topic.
+%The most recent reference cited is of 1996, while this domain has
+%increased these last years.
+%
+%
+%- An evaluation of the proposal is lacking: authors have sufficient place
+%to show an application of this work, by showing indexing and retrieval
+%examples on a dataset, and providing an evaluation of the quality of
+%retrieval and of execution time to convince the reader.
+
+

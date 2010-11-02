@@ -1,0 +1,7 @@
+Digital Volume Library
+----------------------
+
+
+1. Project build setup
+
+Working Directory = $(TargetDir)
