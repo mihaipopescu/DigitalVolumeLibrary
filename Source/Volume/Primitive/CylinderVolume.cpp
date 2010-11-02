@@ -18,6 +18,7 @@ void CCylinderVolume::Create(float fCx, float fCy, float fCz, float height, floa
 	m_fCx = fCx;
 	m_fCy = fCy;
 	m_fCz = fCz;
+	ClearVoxelData();
 	m_fHeight = height;
 	m_fTopRadius = fTopRadius;
 	m_fBottomRadius = fBottomRadius;	

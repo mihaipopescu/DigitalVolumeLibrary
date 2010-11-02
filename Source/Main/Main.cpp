@@ -19,6 +19,8 @@
 
 #include "../Volume/Primitive/HoneycombVolume.h"
 #include "../Volume/Primitive/SphereVolume.h"
+#include "../Volume/Primitive/CylinderVolume.h"
+#include "../Volume/Primitive/CylinderShellVolume.h"
 
 
 
@@ -195,20 +197,25 @@ HRESULT CALLBACK OnD3D9CreateDevice( IDirect3DDevice9* pd3dDevice, const D3DSURF
 	CSphereVolume v2(128, 128, 128);
 	v2.Create(64.f, 64.f, 64.f, 50.f);
 
-	CVolumeData vd;
-	vd.LoadFromFile( L"data/bonsai.hdr" );
+	CSphereVolume v3(128, 128, 128);
+	v3.Create(64.f, 104.f, 64.f, 50.f);
+
+	CCylinderVolume v4(128, 128, 128);
+	v4.Create(64.f, 84.f, 64.f, 60.f, 20.f, 20.f);
+	//CVolumeData vd;
+	//vd.LoadFromFile( L"data/bonsai.hdr" );
 	
-	g_pVolume = new CVolume( vd + v1 );
+	g_pVolume = new CVolume( ((v2 - v3)+v4 ) * v1);
 
 
 	// create proxy geometry for that volume
 	g_pProxyGeometry = new CProxyGeometry( g_pVolume );
-	CShaderManager::GetInstance()->LoadShaderForObject( L"shaders/tf1d.fx", g_pProxyGeometry );
+	CShaderManager::GetInstance()->LoadShaderForObject( L"data/shaders/tf1d.fx", g_pProxyGeometry );
 
 	CViewportManager::GetInstance()->Create( g_pVolume, g_pProxyGeometry->m_hShader );
 	
 	g_pVolumeRaycasting = new CVolumeRaycasting( g_pVolume );
-	CShaderManager::GetInstance()->LoadShaderForObject( L"shaders/RayCasting.fx", g_pVolumeRaycasting );
+	CShaderManager::GetInstance()->LoadShaderForObject( L"data/shaders/RayCasting.fx", g_pVolumeRaycasting );
 
 
 	// Setup our D3D Device initial states
